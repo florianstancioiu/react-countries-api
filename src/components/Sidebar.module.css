@@ -1,0 +1,6 @@
+.sidebar {
+  width: 200px;
+  min-height: 300px;
+  border: 1px solid blue;
+  padding: 20px;
+}

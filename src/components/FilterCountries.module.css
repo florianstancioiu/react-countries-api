@@ -1,0 +1,8 @@
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form input {
+  width: 500px;
+}

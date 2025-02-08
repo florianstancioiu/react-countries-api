@@ -1,0 +1,16 @@
+.countries {
+  width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  justify-content: space-between;
+}
+
+.content-wrapper {
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  border: 1px solid blue;
+}

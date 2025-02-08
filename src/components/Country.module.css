@@ -1,0 +1,13 @@
+.country {
+  width: 160px;
+  padding: 10px;
+  border: 1px solid blue;
+}
+
+.country .flag-wrapper {
+  font-size: 160px;
+}
+
+.country-info p {
+  margin-bottom: 14px;
+}
