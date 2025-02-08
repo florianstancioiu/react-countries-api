@@ -1,0 +1,7 @@
+.content-wrapper {
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  border: 1px solid blue;
+}
