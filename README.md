@@ -85,7 +85,7 @@ export default function DefaultLayout() {
 }
 ```
 
-2. Populate the layout with additional components like header, footer, sidebar
+2. Populate the layout with additional custom components like `<Header />`, `<Footer />`, `<Sidebar />`. We only add the `<Header />` component (and some wrapper class) in the following example:
 
 ```js
 import { Outlet } from "react-router";
@@ -98,7 +98,7 @@ export default () => {
       <div className={classes.page}>
         <Header />
         <div>
-          {/* the Outlet component will be replaced with children pages */}
+          {/* the Outlet component will be replaced with the content of children pages */}
           <Outlet />
         </div>
       </div>
@@ -107,11 +107,12 @@ export default () => {
 };
 ```
 
-3. Import `DefaultLayout` component in routes file and use it with children `<Route>` components like in the following example:
+3. Import `DefaultLayout` component in routes file (or where you defined the routes: `main.js` or `App.js`) and use it with children `<Route>` components like in the following example:
 
 ```js
 import { Routes, Route } from "react-router";
 import DefaultLayout from "./layouts/DefaultLayout";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -122,10 +123,24 @@ const routes = () => (
       <Route index element={<Home />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/about" element={<About />} />
-      <Route path="/countries/:id" element={<Country />} />
+      <Route path="/countries/:countryId" element={<Country />} />
     </Route>
   </Routes>
 );
 
 export default routes;
+```
+
+4. Retrive the `:countryId` param from an url like: `/countries/Romania`
+
+```js
+import { useParams } from "react-router";
+
+const Country = () => {
+  const { countryId } = useParams();
+
+  return <div>You are in country page and the id is: {countryId}</div>;
+};
+
+export default Country;
 ```
