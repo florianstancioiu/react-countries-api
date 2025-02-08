@@ -2,8 +2,9 @@
 
 - CSS Modules
 - React Router
-- useContext hook
+- useState hook
 - useEffect hook
+- useContext hook
 - Debounce
 
 ## How to use the `useContext` hook
@@ -37,7 +38,9 @@ export const CountriesProvider = ({ children }) => {
 };
 ```
 
-5. Apply `Provider` component to all the children that needs the global context inside `main.jsx` or `App.jsx`
+5. Write logic (useState calls, useEffect calls, event handler callbacks) and pass them to the `value` attribute of your `<Context.Provider value={{ countries, setCountries }}>`, in other words, make them globally available to all of the child components.
+
+6. Apply `Provider` component to all the children that needs the global context inside `main.jsx` or `App.jsx`
 
 ```js
 import { createRoot } from "react-dom/client";
@@ -53,7 +56,7 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 
-6. Use the context inside of your child components, like so:
+7. Use the context inside of your child components, like so:
 
 ```js
 import Loading from "../components/Loading";
