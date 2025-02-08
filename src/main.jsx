@@ -8,7 +8,7 @@ import { CountriesProvider } from "./store/CountriesContext.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CountriesProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/react-countries-api/">
         <Routes />
       </BrowserRouter>
     </CountriesProvider>

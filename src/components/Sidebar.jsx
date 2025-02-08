@@ -8,10 +8,15 @@ const Sidebar = () => {
   return (
     <aside className={classes.sidebar}>
       <p>There are {countries.length} countries in page</p>
-      <p>
-        And we search for the followind keyword:{" "}
-        <strong>{searchKeyword}</strong>
-      </p>
+      {searchKeyword.trim() === "" && (
+        <p>You haven't searched for anything yet</p>
+      )}
+      {searchKeyword.trim() !== "" && (
+        <p>
+          And we search for the following keyword:{" "}
+          <strong>{searchKeyword}</strong>
+        </p>
+      )}
     </aside>
   );
 };
