@@ -12,8 +12,6 @@ export const CountriesProvider = ({ children }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
-    setIsLoading(true);
-
     const getCountries = async () => {
       const url =
         searchKeyword === ""
@@ -21,6 +19,7 @@ export const CountriesProvider = ({ children }) => {
           : `https://restcountries.com/v3.1/name/${searchKeyword}`;
 
       try {
+        setIsLoading(true);
         const response = await fetch(url);
         const jsonResponse = await response.json();
 

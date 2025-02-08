@@ -144,3 +144,67 @@ const Country = () => {
 
 export default Country;
 ```
+
+## How to debounce a fetch request using `useEffect`
+
+1. Import `useEffect`, call it and set the proper dependencies array
+2. Write the fetch request using `async/await` by creating a new function inside the callback of useEffect
+3. Call the new function inside of the callback of useEffect
+
+```js
+useEffect(() => {
+  const getCountries = async () => {
+    // fill it with necesary logic
+  };
+
+  getCountries();
+}, [searchKeyword]);
+```
+
+4. Replace the `getCountries()` call with a `setTimeout` call and clear the timeout when the component unmounts
+
+```js
+useEffect(() => {
+  const getCountries = async () => {
+    // fill it with necesary logic
+  };
+
+  let countriesTimeout = setTimeout(getCountries, 500);
+
+  return () => clearTimeout(countriesTimeout);
+}, [searchKeyword]);
+```
+
+5. Here's a full example:
+
+```js
+useEffect(() => {
+  const getCountries = async () => {
+    const url =
+      searchKeyword === ""
+        ? `https://restcountries.com/v3.1/all`
+        : `https://restcountries.com/v3.1/name/${searchKeyword}`;
+
+    try {
+      setIsLoading(true);
+      const response = await fetch(url);
+      const jsonResponse = await response.json();
+
+      if (response.ok) {
+        setCountries(jsonResponse);
+      } else {
+        setCountries([]);
+      }
+
+      setIsLoading(false);
+    } catch (e) {
+      console.log("There was an error trying to fetch the countries", e);
+      setIsLoading(false);
+    }
+  };
+
+  let countriesTimeout = setTimeout(getCountries, 500);
+
+  return () => clearTimeout(countriesTimeout);
+}, [searchKeyword]);
+```
