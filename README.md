@@ -1,10 +1,10 @@
-# Things you will learn about React while developing this project
+# React/JavaScript concepts used in this mini application
 
 - CSS Modules
 - React Router
 - useContext hook
 - useEffect hook
-- debounce
+- Debounce
 
 ## How to use the `useContext` hook
 
