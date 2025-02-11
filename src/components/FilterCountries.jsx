@@ -1,9 +1,9 @@
-import { CountriesContext } from "../store/CountriesContext";
-import { useContext } from "react";
 import classes from "./FilterCountries.module.css";
 
 const FilterCountries = () => {
-  const { searchKeyword, setSearchKeyword } = useContext(CountriesContext);
+  // replace the current variables with context variables
+  const searchKeyword = "";
+  const setSearchKeyword = (value) => console.log("implement me");
 
   const onChangeSearchKeywordHandler = (event) => {
     setSearchKeyword(event.target.value);

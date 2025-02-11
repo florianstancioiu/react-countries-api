@@ -1,13 +1,13 @@
-import { useContext } from "react";
 import Country from "../components/Country";
 import Loading from "../components/Loading";
 import Sidebar from "../components/Sidebar";
 import FilterCountries from "../components/FilterCountries";
 import classes from "./Home.module.css";
-import { CountriesContext } from "../store/CountriesContext";
 
 const Home = () => {
-  const { isLoading, countries } = useContext(CountriesContext);
+  // replace the following lines with context values
+  const isLoading = true;
+  const countries = [];
 
   return (
     <>

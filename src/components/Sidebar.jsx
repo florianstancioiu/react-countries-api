@@ -1,9 +1,9 @@
 import classes from "./Sidebar.module.css";
-import { useContext } from "react";
-import { CountriesContext } from "../store/CountriesContext";
 
 const Sidebar = () => {
-  const { countries, searchKeyword } = useContext(CountriesContext);
+  // replace the current variables with context variables
+  const countries = [];
+  const searchKeyword = "";
 
   return (
     <aside className={classes.sidebar}>
