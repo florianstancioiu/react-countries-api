@@ -11,7 +11,7 @@
 
 1. Create a file in `store` dir for your needs, example: `CountriesContext.jsx`, `AuthContext.jsx`, `DarkModeContext.jsx`
 2. Import `createContext` and use it to instantiate a new context variable, example: `const CountriesContext = createContext(initialData);`
-3. Create initial data (usually an object) to be used inside of all children, example: `{countries: []}`
+3. Create initial data (~~usually an object~~, you actually have to use a single variable, and to create a context for each variable independently, otherwise you will have rerender issues, [click here to read more](https://www.freecodecamp.org/news/react-context-api-tutorial-examples/#heading-how-to-create-multiple-react-contexts)) to be used inside of all children, example: `{countries: []}`
 
 ```js
 import { createContext } from "react";
